@@ -1,8 +1,5 @@
-import pytest
 from selenium import webdriver
-from page import SbisPage
-import time
-
+from pages.sbis_page import SbisPage
 
 driver = webdriver.Chrome()
 driver.get("https://sbis.ru/")

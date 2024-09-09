@@ -2,16 +2,17 @@ import pytest
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from page import SbisPage, TenzorPage
+from pages.sbis_page import SbisPage
+from pages.tenzor_page import TenzorPage
 
 chrome_options = Options()
 download_dir = os.getcwd()
 
 prefs = {
-    "download.default_directory": download_dir,  # Set download directory
-    "download.prompt_for_download": False,       # Disable download prompt
-    "download.directory_upgrade": True,          # Allow directory upgrade
-    "safebrowsing.enabled": True                 # Disable security blocking
+    "download.default_directory": download_dir,
+    "download.prompt_for_download": False,
+    "download.directory_upgrade": True,
+    "safebrowsing.enabled": True
 }
 
 chrome_options.add_experimental_option("prefs", prefs)
