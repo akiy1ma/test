@@ -1,4 +1,4 @@
-from locator import *
+from utils.locator import *
 from .base_page import BasePage
 
 

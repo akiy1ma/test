@@ -1,18 +1,14 @@
-from selenium import webdriver
 from pages.sbis_page import SbisPage
-
-driver = webdriver.Chrome()
-driver.get("https://sbis.ru/")
-
-sbis = SbisPage(driver)
+from utils.navigation import Navigation
 
 
-def test_region():
-    sbis.click_contacts()
-    assert sbis.check_region() == 'Нижегородская обл.'
+def test_region(driver):
+    Navigation.sbis = SbisPage(driver)
+    Navigation.sbis.click_contacts()
+    assert Navigation.sbis.check_region() == 'Нижегородская обл.'
 
 
-def test_changing_region():
-    sbis.click_region()
-    sbis.change_region()
-    assert sbis.check_updated_data()
+def test_changing_region(driver):
+    Navigation.sbis.click_region()
+    Navigation.sbis.change_region()
+    assert Navigation.sbis.check_updated_data()
